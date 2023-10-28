@@ -14,21 +14,29 @@ import { ToDoForm } from "../ToDoForm";
 import { ChangeAlert } from "../ChangeAlert";
 
 function App() {
+  const { 
+    state, 
+    stateUpdaters
+  } = useToDos();
+
   const {
     loading,
     error,
-    searchedToDos,
-    completeToDo,
-    deleteToDo,
-    openModal,
-    addToDo,
-    setOpenModal,
     totalToDos,
     completedToDos,
     searchValue,
+    searchedToDos,
+    openModal
+  } = state;
+
+  const {
     setSearchValue,
+    addToDo,
+    completeToDo,
+    deleteToDo,
+    setOpenModal,  
     sincronizeToDos
-  } = useToDos();
+  } = stateUpdaters;
 
   return (
     <React.Fragment>
